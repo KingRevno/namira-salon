@@ -21,7 +21,7 @@ const services = [
     name: "Hair Cut",
     description:
       "Precision cuts tailored to your face shape and personal style, from classic trims to fresh transformations that frame your features perfectly.",
-    price: "$25+",
+    price: "$30+",
     emoji: "✂️",
     color: "bg-rose-50 group-hover:bg-rose-100",
   },
