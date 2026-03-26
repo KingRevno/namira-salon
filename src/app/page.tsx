@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import WIPBanner from "@/components/WIPBanner";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import About from "@/components/About";
@@ -11,7 +12,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <WIPBanner />
+      <main className="pt-10 lg:pt-11">
         <Hero />
         <Services />
         <About />
