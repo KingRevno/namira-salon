@@ -1,4 +1,5 @@
 import { Phone, ChevronDown, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -86,22 +87,16 @@ export default function Hero() {
           {/* Image / visual area */}
           <div className="relative animate-fade-in">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              {/* Placeholder image area - swap with <Image> when photos are ready */}
-              <div className="aspect-[4/5] bg-gradient-to-br from-rose-200 via-pink-200 to-rose-300 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-28 h-28 bg-white/50 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner">
-                    <span className="text-5xl">💅</span>
-                  </div>
-                  <p className="text-rose-800 font-serif text-xl font-semibold">
-                    Namira Salon
-                  </p>
-                  <p className="text-rose-600 text-sm mt-1">
-                    Professional Beauty Services
-                  </p>
-                  <p className="text-rose-500/70 text-xs mt-3">
-                    Replace with salon photo
-                  </p>
-                </div>
+              <div className="aspect-[4/5] relative">
+                <Image
+                  src="/images/hero.jpg"
+                  alt="Professional beauty services at Namira Salon"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                {/* Soft pink overlay for brand consistency */}
+                <div className="absolute inset-0 bg-rose-400/10" />
               </div>
             </div>
 
