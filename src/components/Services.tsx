@@ -1,53 +1,60 @@
-import { Phone } from "lucide-react";
+import { Eye, Feather, Phone, Scissors, Sparkles, Star, Wind } from "lucide-react";
+import { ComponentType } from "react";
 
-const services = [
+const services: {
+  name: string;
+  description: string;
+  icon: ComponentType<{ className?: string }>;
+  color: string;
+  iconColor: string;
+}[] = [
   {
     name: "Manicure",
     description:
       "Beautifully shaped, buffed, and polished nails with lasting results. Classic, gel, or nail art options available for a flawless, personalized finish.",
-    price: "$45+",
-    emoji: "💅",
+    icon: Sparkles,
     color: "bg-rose-50 group-hover:bg-rose-100",
+    iconColor: "text-rose-500",
   },
   {
     name: "Pedicure",
     description:
       "A relaxing and rejuvenating foot treatment with soothing soaks, exfoliation, and polished nails that leave your feet feeling silky soft.",
-    price: "$35+",
-    emoji: "🦶",
+    icon: Star,
     color: "bg-pink-50 group-hover:bg-pink-100",
+    iconColor: "text-pink-500",
   },
   {
     name: "Hair Cut",
     description:
       "Precision cuts tailored to your face shape and personal style, from classic trims to fresh transformations that frame your features perfectly.",
-    price: "$30+",
-    emoji: "✂️",
+    icon: Scissors,
     color: "bg-rose-50 group-hover:bg-rose-100",
+    iconColor: "text-rose-500",
   },
   {
     name: "Hair Styling",
     description:
       "Elegant blowouts, bouncy curls, sleek waves, or stunning updos for any occasion. From everyday glam to special event-ready styles.",
-    price: "$10+",
-    emoji: "💇‍♀️",
+    icon: Wind,
     color: "bg-pink-50 group-hover:bg-pink-100",
+    iconColor: "text-pink-500",
   },
   {
     name: "Lashes",
     description:
       "Fuller, longer, and more defined lashes for an instant wow effect. Classic, volume, and hybrid extension sets designed to suit your look.",
-    price: "$35+",
-    emoji: "👁️",
+    icon: Eye,
     color: "bg-rose-50 group-hover:bg-rose-100",
+    iconColor: "text-rose-500",
   },
   {
     name: "Waxing",
     description:
       "Smooth, clean, and long-lasting results with gentle, effective waxing. Eyebrows, lip, face, and body waxing performed with care.",
-    price: "$5+",
-    emoji: "✨",
+    icon: Feather,
     color: "bg-pink-50 group-hover:bg-pink-100",
+    iconColor: "text-pink-500",
   },
 ];
 
@@ -79,15 +86,12 @@ export default function Services() {
               {/* Subtle top accent */}
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-rose-300 to-pink-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              <div className="flex items-start justify-between mb-4">
+              <div className="mb-4">
                 <div
-                  className={`w-14 h-14 ${service.color} rounded-2xl flex items-center justify-center text-2xl transition-colors duration-300 flex-shrink-0`}
+                  className={`w-14 h-14 ${service.color} rounded-2xl flex items-center justify-center transition-colors duration-300 flex-shrink-0`}
                 >
-                  {service.emoji}
+                  <service.icon className={`w-6 h-6 ${service.iconColor}`} />
                 </div>
-                <span className="text-rose-500 font-bold text-xl font-serif pt-1">
-                  {service.price}
-                </span>
               </div>
               <h3 className="text-gray-900 font-bold text-lg mb-2">
                 {service.name}
