@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const highlights = [
   { icon: "⭐", label: "15+ Years Experience" },
   { icon: "💖", label: "Personalized Care" },
@@ -15,22 +17,14 @@ export default function About() {
           {/* Image placeholder */}
           <div className="relative order-2 lg:order-1">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              {/* Placeholder — swap with <Image> when Namira's photo is ready */}
-              <div className="aspect-[3/4] bg-gradient-to-br from-rose-100 via-pink-200 to-rose-200 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-36 h-36 bg-white/60 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner">
-                    <span className="text-7xl">👩‍🎨</span>
-                  </div>
-                  <p className="text-rose-800 font-serif text-2xl font-bold">
-                    Namira
-                  </p>
-                  <p className="text-rose-600 text-sm mt-1 font-medium">
-                    Beauty Professional
-                  </p>
-                  <p className="text-rose-500/60 text-xs mt-2">
-                    Replace with your photo
-                  </p>
-                </div>
+              <div className="aspect-[3/4] relative">
+                <Image
+                  src="/images/namira.jpg"
+                  alt="Namira — Professional Beauty Stylist"
+                  fill
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-rose-400/10" />
               </div>
             </div>
 

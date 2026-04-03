@@ -1,50 +1,46 @@
+import Image from "next/image";
+
 const galleryItems = [
   {
     id: 1,
+    src: "/images/gallery-nails.jpg",
+    alt: "Beautiful nail art and manicure",
     label: "Nail Art",
-    sublabel: "Manicure",
-    emoji: "💅",
-    gradient: "from-rose-200 via-pink-200 to-rose-300",
     tall: true,
   },
   {
     id: 2,
+    src: "/images/gallery-lashes.jpg",
+    alt: "Lash extensions",
     label: "Lash Extensions",
-    sublabel: "Lashes",
-    emoji: "👁️",
-    gradient: "from-pink-100 via-rose-200 to-pink-200",
     tall: false,
   },
   {
     id: 3,
+    src: "/images/gallery-hair.jpg",
+    alt: "Professional hair styling",
     label: "Hair Styling",
-    sublabel: "Hair",
-    emoji: "💇‍♀️",
-    gradient: "from-rose-100 via-pink-150 to-rose-200",
     tall: false,
   },
   {
     id: 4,
-    label: "Pedicure",
-    sublabel: "Foot Care",
-    emoji: "🦶",
-    gradient: "from-pink-200 via-rose-100 to-pink-200",
+    src: "/images/gallery-spa.jpg",
+    alt: "Relaxing spa and pedicure treatment",
+    label: "Pedicure & Spa",
     tall: true,
   },
   {
     id: 5,
+    src: "/images/gallery-beauty.jpg",
+    alt: "Beauty treatment results",
     label: "Beauty Results",
-    sublabel: "Glam",
-    emoji: "✨",
-    gradient: "from-rose-200 via-rose-300 to-pink-300",
     tall: false,
   },
   {
     id: 6,
-    label: "Salon Setup",
-    sublabel: "Studio",
-    emoji: "🏠",
-    gradient: "from-pink-100 via-rose-200 to-rose-100",
+    src: "/images/gallery-polish.jpg",
+    alt: "Nail polish collection",
+    label: "Nail Polish",
     tall: false,
   },
 ];
@@ -74,29 +70,19 @@ export default function Gallery() {
               key={item.id}
               className="break-inside-avoid mb-4 lg:mb-5 group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
-              {/* Placeholder block — swap background-image or use <Image> when photos are ready */}
               <div
-                className={`bg-gradient-to-br ${item.gradient} ${
-                  item.tall ? "aspect-[3/4]" : "aspect-square"
-                } flex items-center justify-center relative`}
+                className={`relative ${item.tall ? "aspect-[3/4]" : "aspect-square"}`}
               >
-                {/* Content */}
-                <div className="text-center p-4 z-10 relative">
-                  <span className="text-5xl sm:text-6xl block mb-2 drop-shadow-sm">
-                    {item.emoji}
-                  </span>
-                  <p className="text-rose-800 text-sm font-semibold">
-                    {item.label}
-                  </p>
-                  <p className="text-rose-600/70 text-xs mt-0.5">
-                    {item.sublabel}
-                  </p>
-                </div>
-
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-rose-900/0 group-hover:bg-rose-900/10 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-rose-900/0 group-hover:bg-rose-900/20 transition-colors duration-300" />
 
-                {/* Hover label */}
+                {/* Label on hover */}
                 <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <p className="text-gray-800 text-sm font-semibold text-center">
                     {item.label}
@@ -108,7 +94,7 @@ export default function Gallery() {
         </div>
 
         <p className="text-center text-gray-400 text-sm mt-8">
-          Real photos coming soon. Follow{" "}
+          Follow{" "}
           <a
             href="https://www.instagram.com/namirasalon/"
             target="_blank"
