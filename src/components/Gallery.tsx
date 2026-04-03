@@ -32,8 +32,8 @@ const galleryItems = [
   {
     id: 5,
     src: "/images/gallery-beauty.jpg",
-    alt: "Beauty treatment results",
-    label: "Beauty Results",
+    alt: "Pedicure with polished nails",
+    label: "Pedicure",
     tall: false,
   },
   {
