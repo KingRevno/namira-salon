@@ -25,8 +25,8 @@ const galleryItems = [
   {
     id: 4,
     src: "/images/gallery-spa.jpg",
-    alt: "Relaxing spa and pedicure treatment",
-    label: "Pedicure & Spa",
+    alt: "Professional waxing service",
+    label: "Waxing",
     tall: true,
   },
   {
