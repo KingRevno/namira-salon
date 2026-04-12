@@ -14,10 +14,19 @@ function containsBookingCue(text: string): boolean {
   return BOOKING_PATTERN.test(text);
 }
 
-function MessageBubble({ message }: { message: Message }) {
+function MessageBubble({
+  message,
+  isWelcome = false,
+}: {
+  message: Message;
+  isWelcome?: boolean;
+}) {
   const isUser = message.role === "user";
   const showCallLink =
-    !isUser && containsBookingCue(message.content) && message.content !== "";
+    !isUser &&
+    !isWelcome &&
+    containsBookingCue(message.content) &&
+    message.content !== "";
 
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"} mb-3`}>
@@ -215,7 +224,7 @@ export default function ChatBot() {
         {/* Messages */}
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
           {messages.map((msg, i) => (
-            <MessageBubble key={i} message={msg} />
+            <MessageBubble key={i} message={msg} isWelcome={i === 0} />
           ))}
           {isTyping && <TypingIndicator />}
           <div ref={messagesEndRef} />

@@ -1,4 +1,4 @@
-// Required env vars: ANTHROPIC_API_KEY, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN
+// Required env vars: ANTHROPIC_API_KEY, KV_REST_API_URL, KV_REST_API_TOKEN
 
 import Anthropic from "@anthropic-ai/sdk";
 import { Redis } from "@upstash/redis";
@@ -7,8 +7,8 @@ import { type NextRequest } from "next/server";
 const client = new Anthropic();
 
 const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+  url: process.env.KV_REST_API_URL!,
+  token: process.env.KV_REST_API_TOKEN!,
 });
 
 const SYSTEM_PROMPT = `You are a helpful assistant for Namira Salon. Only answer questions about Namira Salon. If asked about anything unrelated to the salon's services, hours, location, pricing, or booking, politely decline and redirect: "I can only help with questions about Namira Salon. Would you like to know about our services or how to book an appointment?"
